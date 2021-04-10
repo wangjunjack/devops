@@ -23,7 +23,7 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # 如果hello，总入口直接指向具体app等具体方法，一旦app过多，路由过多，注入口将不堪重负，所以要分而治之
-    #path('hello/', views.index),
+    # path('hello/', views.index),
     # 当你访问hello时，我不知道具体方法，而是告诉你去hello app中的urls.py
     path('', include('hello.urls')),
 ]
