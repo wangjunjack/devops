@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<br>
+{# 第一个html页面#}
+<p style="background-color: aquamarine;">hello Django</p>
+
+{# 接受变量的值 #}
+<p> {{ classname }}</p>
+
+{# 接受列表中的值 #}
+{#<li>{{ books.0 }}</li>#}
+{#<li>{{ books.1 }}</li>#}
+{#<li>{{ books.2 }}</li>#}
+{# for循环接受列表的值 #}
+{% for book in books %}
+<li style="background: bisque";>{{ book }}</li>
+{% endfor %}
+
+{# 接受字典的中值 #}
+<div style="background-color: blueviolet";>hello my name is {{ user.name }} </br>
+my age is {{ user.age }}
+</div>
+
+{# for循环标签，渲染books列表#}
+{% for user in userlist %}
+<li style="background: cadetblue";>{{ user.name }}: {{ user.age }}</li>
+{% endfor %}
+
+{# if标签使用判断用户是否存在 #}
+{% if user %}
+    <p> name:{{ user.name }} </p>
+{% else %}
+    用户不存在
+{% endif %}
+
+
+
+</body>
+</html>

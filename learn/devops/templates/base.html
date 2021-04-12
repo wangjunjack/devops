@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deepsight Devops Platform</title>
+</head>
+<body>
+<p style="background-color: chocolate;">
+    {% block title %} 用户列表 {% endblock %}
+</p>
+
+<!-- 页面内容往往是变化的一块，做成变量即可 -->
+{% block content %}
+
+{% endblock %}
+
+
+<!-- 每个页面都有哥底部且样式基本不会变，可以抽象出来 -->
+<p style="background: beige;">版权所有：Deepsight Devops Platform 2020-2021</p>
+</body>
+</html>

@@ -77,4 +77,4 @@ urlpatterns = {
 }
 ```
 
-## Day2 
+## Day2
