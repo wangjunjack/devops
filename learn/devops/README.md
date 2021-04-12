@@ -78,3 +78,8 @@ urlpatterns = {
 ```
 
 ## Day2
+* 打通MTV视图
+1. GET/POST请求，带参数和不带参数带方法
+2. GET方法通过变量、list、dict的数据类型，前端的展示方法
+3. QueryDict--> 查询集，数据封装方法
+4. 视图模版，html母版以及继承母版
