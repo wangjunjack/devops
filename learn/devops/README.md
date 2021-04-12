@@ -1,5 +1,5 @@
 ## Django Learn
-### Day1 MTV（Model Template Views）
+### Day1  MTV（Model Template Views）
 1. 创建App
 ```shell
 python manage.py startapp hello
@@ -77,3 +77,4 @@ urlpatterns = {
 }
 ```
 
+## Day2 
