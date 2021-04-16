@@ -1,0 +1,21 @@
+<!-- 继承母版不变的部分 -->
+{% extends "base.html" %}
+
+<!-- 重写母版变的部分 -->
+{% block title %} 用户删除 {% endblock %}
+
+<!-- 重写母版变的部分 -->
+{% block content %}
+{% if msg.code == 0 %}
+    <p style="color: green"> {{ msg.result }} </p>
+{% else %}
+    <p style="color: red"> {{ msg.errmsg }} </p>
+{% endif %}
+
+<h1>确定要删除 {{ user.name }}?</h1>
+<form method="post">
+    <button type="submit">确定</button>
+    <button><a href="{% url 'hello:userlist' %}">取消</a></button>
+</form>
+
+{% endblock %}

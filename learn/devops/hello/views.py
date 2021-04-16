@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse,QueryDict
+from hello.models import User
 
 
 
@@ -58,10 +59,21 @@ def index(request):
 
 # list user
 def list(request):
-    users = [
-            {'username': 'dev', 'name_cn': 'dev', 'age': 18},
-            {'username': 'dev1', 'name_cn': 'dev1', 'age': 19},
-            {'username': 'dev2', 'name_cn': 'dev2', 'age': 20},
-        ]
+    messages = ['1', '2', '3', '4', '5']
+    value = ['python', 'django', 'java'] # python,django,java前端想这样展示
+    # users = [
+    #         {'username': 'dev', 'name_cn': 'dev', 'age': 18},
+    #         {'username': 'dev1', 'name_cn': 'dev1', 'age': 19},
+    #         {'username': 'dev2', 'name_cn': 'dev2', 'age': 20},
+    #     ]
+    users = User.objects.all()
     print(users)
-    return render(request, 'hello/userlist.html', {'users':users})
+    return render(request, 'hello/userlist1.html', {'users':users, 'messages':messages, 'value':value})
+
+# def userlist(request):
+#     users = User.objects.all()
+#     return render(request, 'index.html', {'users':users})
+def user(request):
+    return render(request, 'hello/userlist1.html')
+
+

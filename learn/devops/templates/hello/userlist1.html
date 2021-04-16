@@ -1,0 +1,71 @@
+<!-- 继承母版不变的部分 -->
+{% extends "base.html" %}
+
+<!-- 重写母版变的部分 -->
+{% block title %} 用户列表 {% endblock %}
+
+<!-- 重写母版变的部分 -->
+{% block content %}
+<table border="2">
+<thead>
+    <tr>
+        <th>用户名</th>
+        <th>姓名</th>
+        <th>年龄</th>
+    </tr>
+</thead>
+<tbody>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.sex }}</td>
+    </tr>
+    {% endfor %}
+
+</tbody>
+</table>
+
+<!-- Django过滤器，通过长度判断 -->
+{% if messages|length >= 5 %}
+    You have lots of messages today!
+{% else %}
+    You have not messages today!
+{% endif %}
+
+<br><br>
+<!-- default---传入的值为false 则显示默认值"nothing"是默认值 过滤器 -->
+{{ value|default:"nothing" }}
+
+<!-- first/last----只展示列表中的第一/最后元素 -->
+{{ value|first }}
+
+<!-- join---将列表转为字符串，通python的 str.join(list) -->
+{{ value|join:"," }} <!-- 如果value是列表['a', 'b', 'c'],输出字符串"a// b // c //" -->
+
+<!-- slice: 切片。使用形式：{{ some_list | slice:":2" }} -->
+ 作用：与python语法中的slice相同，":2"表示第一的第二个元素
+{{ some_list | slice:":1" }}
+
+<br><br>
+<!-- length---判断字符串和列表的长度 -->
+{{ value|length }} <!-- 如果value是['a','b','c']或"abc"，输出将为3 -->
+{{ value|length_is:"3" }} <!-- 如果value是['a','b','c']或"abc",则输出为True -->
+
+<!-- static要链接保存在STATIC_ROOT中的静态文件，Django附带了static模版标记。无论是否使用RuquestContext，你都可以使用此方法。-->
+{% load static %}
+    <img src="{% static "images/01.jpg" %}" alt="Hi" />
+{% load static %}
+
+{% static "images/01.jpg"  as myphoto %}
+    <img src="{{ myphoto }}"></img>
+
+<!-- date: 如果value=datetime.datetime.now(),将返回当前时间的"年-月-日"格式 -->
+{{ value|date:"Y-m-d" }}
+
+<br><br>
+{% load mytag %}
+<p>{{ "2" |test:'1' }}</p>
+
+
+{% endblock %}
