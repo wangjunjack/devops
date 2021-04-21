@@ -1,9 +1,17 @@
 from django.urls import path,re_path
-from . import views,views1,views2
+from . import views,views1,views2,views3
 from hello.views2 import IndexView,IndexView2
+from hello import views4
 
 app_name = 'hello'
 urlpatterns = [
+
+    # html css Jquery学习
+    path('html/', views4.HtmlView.as_view(), name='html'),
+    path('form/', views4.FormView.as_view(), name='form'),
+    path('modelform/', views4.UserModelFormView.as_view(), name='form'),
+
+
     path('hello/', views.index, name='index'),
     path('list/', views.list, name = 'list'),
 
@@ -43,4 +51,10 @@ urlpatterns = [
     re_path('index7/(?P<pk>[0-9]+)?/', views2.IndexView7.as_view(), name='index7'),
     # (?P<pk>[0-9]+)? -> 这个是ID的写法，用户后端出入到前端的ID
 
+    # CBV简易用户管理系统版本一：利用编辑通用视图处理表单
+    path('useradd1/', views3.UserAddView.as_view(), name='useradd1'),
+    path('userlist1/', views3.UserListView.as_view(), name='userlist1'),
+    re_path('detail/(?P<pk>[0-9]+)?/', views3.UserDetailView.as_view(), name='detail'),
+    re_path('modify1/(?P<pk>[0-9]+)?/', views3.UserUpdateView.as_view(), name='modify1'),
+    re_path('userdel1/(?P<pk>[0-9]+)?/', views3.UserDeleteView.as_view(), name='userdel1'),
 ]

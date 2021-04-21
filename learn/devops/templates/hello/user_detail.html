@@ -1,0 +1,14 @@
+<!-- 继承母版不变的部分 -->
+{% extends "base.html" %}
+
+<!-- 重写母版变的部分 -->
+{% block title %} 个人信息 {% endblock %}
+
+<!-- 重写母版变的部分 -->
+{% block content %}
+
+<p> 姓名：{{ user.name }}</p>
+<p> 密码：{{ user.password }}</p>
+<p> 性别：{{ user.sex }}</p>
+
+{% endblock %}

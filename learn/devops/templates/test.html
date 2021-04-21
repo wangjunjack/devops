@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deepsight</title>
+</head>
+<body>
+
+
+<!-- 盒子模型标签 div-->
+{#<div>#}
+{#    <div><h1>python</h1></div>#}
+{#    <div><h1>Django</h1></div>#}
+{#</div>#}
+
+<!-- 表格-->
+{#<table border="1">#}
+{#<thead>#}
+{#    <tr>#}
+{#        <th>姓名</th>#}
+{#        <th>姓名</th>#}
+{#    </tr>#}
+{#</thead>#}
+{#<tbody>#}
+{#    <tr>#}
+{#        <td>ds1</td><td>20</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>ds2</td><td>21</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>ds3</td><td>22</td>#}
+{#    </tr>#}
+{#</tbody>#}
+{#</table>#}
+
+<!-- form表单-->
+<!-- {% url 'hello:html' %} 命名空间写法-->
+
+{% if form %}
+    {{ form.errors }}
+{% endif %}
+
+<form method="post" action="{% url 'hello:html' %}" enctype="multipart/form-data">
+    <input type="hidden" name="ID" value="100">
+    姓名：
+    <input type="text" name="name" value="">
+    <br>
+    <br>
+    手机：
+    <input type="text" name="phone" value="">
+    <br>
+    <br>
+    邮箱：
+    <input type="text" name="email" value="">
+    <br>
+    <br>
+    密码：
+    <input type="password" name="password" value="">
+    <br>
+    <br>
+    性别：
+    <input type="radio" name="sex" value="0">男
+    <input type="radio" name="sex" value="1">女
+    <br>
+    <br>
+    爱好：
+    <input type="checkbox" name="hobby" value="read">read
+    <input type="checkbox" name="hobby" value="sport">sport
+    <br>
+    <br>
+    技能：
+{#        <select name="skill" size="3" multiple>#}
+        <select name="skill">
+            <option value="1" selected>Pyhton</option>
+            <option value="2" >Java</option>
+            <option value="3">PHP</option>
+            <option value="4">JavaScript</option>
+        </select>
+    <br>
+    <br>
+    文件上传：
+    <input type="file" name="file">
+    <br>
+    <br>
+    个人简介：
+        <textarea rows="3" cols="20" name="info" value="">
+        </textarea>
+    <br>
+    <br>
+    <input type="submit" name="save" value="确定">
+    <input type="reset" name="reset" value="重置">
+</form>
+
+
+</body>
+<!-- 超链接标签-->
+<a href="http://www.baidu.com" target="blank">点击我，会跳转</a>
+<footer style="background: cadetblue">Deepsight Devops Platfrom </footer>
+</html>

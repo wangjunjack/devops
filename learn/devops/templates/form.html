@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Devops</title>
+</head>
+<body>
+<h1>Hello world</h1>
+
+
+{% for key,error in forms.errors.items %}
+    {{ error }}
+{% endfor %}
+
+<form action="" method="post">
+<!-- form是UserForm的一个实例，通过render方法把它传递给模版。
+as_table是form的一个方法，它把form渲染成表格行(as_ul和as_p也是起着相似的作用 )-->
+    {{ form.as_p }}
+    <input type="submit" value="提交">
+</form>
+
+</body>
+</html>

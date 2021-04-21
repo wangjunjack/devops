@@ -5,8 +5,8 @@ class User(models.Model):       # 建立创建表当类
         (0, '男'),
         (1, '女'),
     )
-    name = models.CharField(max_length=20, help_text="用户名")
-    password = models.CharField(max_length=32, help_text="密码")
+    name = models.CharField(max_length=10, help_text="用户名")
+    password = models.CharField(max_length=5, help_text="密码")
     sex = models.IntegerField(choices=SEX, null=True, blank=True)       # 数据库0，1，展示男女
 
     def __str__(self):          # 当对象以字符串返回时，把name返回
